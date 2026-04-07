@@ -1,13 +1,10 @@
-import { useState } from 'react'
+import { useAuth } from "./hooks/useAuth";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  
-
-  return (
-    <>
-     
-    </>
-  )
+  const { token } = useAuth();
+  return token ? <Dashboard /> : <Login />;
 }
 
-export default App
+export default App;
