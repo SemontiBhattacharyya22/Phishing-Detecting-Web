@@ -6,10 +6,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .utils import analyze_email, analyze_url
 from .models import EmailScan
-# from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def detect_email(request):
     email = request.data.get("email", "")
     result = analyze_email(email)
